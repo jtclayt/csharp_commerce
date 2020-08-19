@@ -1,0 +1,84 @@
+/*
+  Author: Justin Clayton
+*/
+
+/* HTML selector rules */
+body {
+  margin-bottom: 60px;
+  background-color: rgb(245, 242, 242);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+main {
+  padding: 25px;
+}
+
+nav.navbar {
+  padding: 15px 200px;
+}
+
+nav .navbar-brand {
+  font-size: 1.7rem;
+}
+
+nav .nav-link {
+  font-size: 1.4rem;
+}
+
+/* Class rules */
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.11);
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.row {
+  margin-top: 30px;
+  justify-content: center;
+}
+
+/* ID rules */
+#nav-info {
+  display: flex;
+  align-items: center;
+}
+
+#nav-info > p {
+  margin: 0 10px;
+  color: azure;
+  font-size: 1.6rem;
+}

@@ -1,0 +1,30 @@
+@model LoginUser
+
+<header>
+  <h1>Login</h1>
+  <a class="btn btn-outline-info" asp-action="RegisterForm" asp-controller="User">
+    Register
+  </a>
+</header>
+
+<section class="row">
+  <form class="col-sm-6" asp-action="Login" asp-controller="User" method="POST">
+    <span class="text-danger" asp-validation-for="Email"></span>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" asp-for="Email"></label>
+      </div>
+      <input class="form-control" asp-for="Email">
+    </div>
+
+    <span class="text-danger" asp-validation-for="Password"></span>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" asp-for="Password"></label>
+      </div>
+      <input class="form-control" asp-for="Password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</section>

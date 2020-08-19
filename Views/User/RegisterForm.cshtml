@@ -1,0 +1,54 @@
+@model User
+
+<header>
+  <h1>Register</h1>
+  <a class="btn btn-outline-info" asp-action="LoginForm" asp-controller="User">
+    Login
+  </a>
+</header>
+
+<section class="row">
+  <form class="col-sm-6" asp-action="Register" asp-controller="User" method="POST">
+    <span class="text-danger" asp-validation-for="FirstName"></span>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" asp-for="FirstName"></label>
+      </div>
+      <input class="form-control" asp-for="FirstName">
+    </div>
+
+    <span class="text-danger" asp-validation-for="LastName"></span>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" asp-for="LastName"></label>
+      </div>
+      <input class="form-control" asp-for="LastName">
+    </div>
+
+    <span class="text-danger" asp-validation-for="Email"></span>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" asp-for="Email"></label>
+      </div>
+      <input class="form-control" asp-for="Email">
+    </div>
+
+    <span class="text-danger" asp-validation-for="Password"></span>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" asp-for="Password"></label>
+      </div>
+      <input class="form-control" asp-for="Password">
+    </div>
+
+    <span class="text-danger" asp-validation-for="Confirm"></span>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" asp-for="Confirm"></label>
+      </div>
+      <input class="form-control" asp-for="Confirm">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+</section>
