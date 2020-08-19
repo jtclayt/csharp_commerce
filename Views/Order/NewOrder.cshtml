@@ -1,0 +1,30 @@
+@model NewOrderWrapper
+
+<section class="row">
+  <article class="col-md-6 text-center">
+    <h1>@Model.CurrentProduct.Name</h1>
+    <p>Description: @Model.CurrentProduct.Desc</p>
+    <p>Available quantity: @Model.CurrentProduct.Quantity</p>
+  </article>
+  <figure class="col-md-6">
+    <img id="product-img" src="@Model.CurrentProduct.ImageUrl"
+      alt="@Model.CurrentProduct.Name">
+  </figure>
+</section>
+
+<h2>How many @Model.CurrentProduct.Name would you like to order?</h2>
+<section class="row">
+  <form class="col-sm-6" asp-action="CreateOrder" asp-controller="Order" method="POST">
+    <span class="text-danger" asp-validation-for="Form.Quantity"></span>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" asp-for="Form.Quantity"></label>
+      </div>
+      <input class="form-control" asp-for="Form.Quantity">
+      <input type="hidden" asp-for="Form.ProductId">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Order</button>
+  </form>
+</section>
+

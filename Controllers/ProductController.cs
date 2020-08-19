@@ -23,7 +23,37 @@ namespace Commerce.Controllers
             {
                 return RedirectToAction("Login", "User");
             }
-            return View("Products");
+            Product[] allProducts = _db.Products
+                .OrderBy(p => p.Name)
+                .ToArray();
+            return View("Products", allProducts);
+        }
+
+        [HttpPost("products")]
+        public IActionResult CreateProduct(Product newProduct)
+        {
+            if (!CheckUser())
+            {
+                return RedirectToAction("Login", "User");
+            }
+            if (ModelState.IsValid)
+            {
+                newProduct.UserId = HttpContext.Session.Get<User>("user").UserId;
+                _db.Add(newProduct);
+                _db.SaveChanges();
+                return RedirectToAction("Products");
+            }
+            return NewProduct();
+        }
+
+        [HttpGet("products/new")]
+        public IActionResult NewProduct()
+        {
+            if (!CheckUser())
+            {
+                return RedirectToAction("Login", "User");
+            }
+            return View("NewProduct");
         }
 
         private bool CheckUser()

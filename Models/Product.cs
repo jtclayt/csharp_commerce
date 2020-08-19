@@ -26,7 +26,7 @@ namespace Commerce.Models
 
         [Required(ErrorMessage="Quantity is required.")]
         [Range(0, Double.PositiveInfinity)]
-        public int Quantity { get; set;}
+        public int? Quantity { get; set;}
 
         public int UserId { get; set; }
         public User Creator { get; set; }

@@ -45,6 +45,10 @@ nav .nav-link {
   font-size: 1.4rem;
 }
 
+table {
+  background-color: white;
+}
+
 /* Class rules */
 .border-top {
   border-top: 1px solid #e5e5e5;
@@ -56,6 +60,23 @@ nav .nav-link {
 
 .box-shadow {
   box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.11);
+}
+
+.card {
+  width: 15rem;
+  height: 25rem;
+  margin: 10px;
+}
+
+.card > img {
+  height: 15rem;
+}
+
+.card-container {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .footer {
@@ -81,4 +102,8 @@ nav .nav-link {
   margin: 0 10px;
   color: azure;
   font-size: 1.6rem;
+}
+
+#product-img {
+  width: 300px;
 }

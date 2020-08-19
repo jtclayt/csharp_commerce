@@ -1,0 +1,40 @@
+@model Product
+
+<h1>New Product</h1>
+<section class="row">
+  <form class="col-sm-6" asp-action="CreateProduct" asp-controller="Product" method="POST">
+    <span class="text-danger" asp-validation-for="Name"></span>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" asp-for="Name"></label>
+      </div>
+      <input class="form-control" asp-for="Name">
+    </div>
+
+    <span class="text-danger" asp-validation-for="ImageUrl"></span>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" asp-for="ImageUrl"></label>
+      </div>
+      <input class="form-control" asp-for="ImageUrl">
+    </div>
+
+    <span class="text-danger" asp-validation-for="Desc"></span>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" asp-for="Desc"></label>
+      </div>
+      <input class="form-control" asp-for="Desc">
+    </div>
+
+    <span class="text-danger" asp-validation-for="Quantity"></span>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" asp-for="Quantity"></label>
+      </div>
+      <input class="form-control" asp-for="Quantity">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Product</button>
+  </form>
+</section>

@@ -17,13 +17,13 @@ namespace Commerce.Controllers
         }
 
         [HttpGet("")]
-        public IActionResult Index()
+        public IActionResult Dashboard()
         {
             if (!CheckUser())
             {
                 return RedirectToAction("Login", "User");
             }
-            return View("Index");
+            return View("Dashboard");
         }
 
         private bool CheckUser()

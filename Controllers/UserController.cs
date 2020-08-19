@@ -35,7 +35,7 @@ namespace Commerce.Controllers
                     _db.Users.Add(newUser);
                     _db.SaveChanges();
                     HttpContext.Session.Set<User>("user", newUser);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Dashboard", "Home");
                 }
 
                 ModelState.AddModelError("Email", "Email already in use!");
@@ -67,7 +67,7 @@ namespace Commerce.Controllers
                     if (isAuth != 0)
                     {
                         HttpContext.Session.Set<User>("user", user);
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Dashboard", "Home");
                     }
                 }
                 ModelState.AddModelError("Email", "Invalid Email/Password");

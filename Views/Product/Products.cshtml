@@ -1,1 +1,25 @@
-<h1>Products</h1>
+@model Product[]
+
+<header>
+  <h1>Products</h1>
+  <a asp-action="NewProduct" asp-controller="Product" class="btn btn-success">
+    Create a Product
+    </a>
+</header>
+
+<div class="card-container">
+  @foreach (Product p in Model)
+  {
+    <div class="card">
+      <img src="@p.ImageUrl" class="card-img-top" alt="@p.Name">
+      <div class="card-body">
+        <h5 class="card-title">@p.Name</h5>
+        <p class="card-text">Quantity: @p.Quantity</p>
+        <a asp-action="NewOrder" asp-controller="Order" asp-route-productId="@p.ProductId"
+          class="btn btn-primary">
+          Order
+        </a>
+      </div>
+    </div>
+  }
+</div>
