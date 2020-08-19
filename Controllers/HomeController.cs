@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 using Session;
@@ -23,7 +24,26 @@ namespace Commerce.Controllers
             {
                 return RedirectToAction("Login", "User");
             }
-            return View("Dashboard");
+
+            DashboardWrapper data = new DashboardWrapper();
+            data.NewestProducts = _db.Products
+                .OrderByDescending(p => p.CreateAt)
+                .Take(5)
+                .ToArray();
+
+            data.RecentOrders = _db.Orders
+                .Include(o => o.Customer)
+                .Include(o => o.OrderedProduct)
+                .OrderByDescending(o => o.CreateAt)
+                .Take(3)
+                .ToArray();
+
+            data.NewestUsers = _db.Users
+                .OrderByDescending(u => u.CreatedAt)
+                .Take(3)
+                .ToArray();
+
+            return View("Dashboard", data);
         }
 
         private bool CheckUser()

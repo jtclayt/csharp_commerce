@@ -1,1 +1,43 @@
+@model DashboardWrapper
+
 <h1>Dashboard</h1>
+
+<h2>Newest Products</h2>
+<section class="row">
+  <div class="card-container">
+    @foreach (Product p in Model.NewestProducts)
+    {
+      <div class="card">
+        <img src="@p.ImageUrl" class="card-img-top" alt="@p.Name">
+        <div class="card-body">
+          <h5 class="card-title">@p.Name</h5>
+          <p class="card-text">Quantity: @p.Quantity</p>
+          <a asp-action="NewOrder" asp-controller="Order" asp-route-productId="@p.ProductId"
+            class="btn btn-primary">
+            Order
+          </a>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<h2>Recent Orders</h2>
+<section class="row">
+  <ul>
+    @foreach (Order o in Model.RecentOrders)
+    {
+      <li>@o.Customer.FirstName purchased @o.Quantity @o.OrderedProduct.Name</li>
+    }
+  </ul>
+</section>
+
+<h2>New Customers</h2>
+<section class="row">
+  <ul>
+    @foreach (User u in Model.NewestUsers)
+    {
+      <li>@u.FirstName @u.LastName joined the store</li>
+    }
+  </ul>
+</section>

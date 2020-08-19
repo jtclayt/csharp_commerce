@@ -4,7 +4,7 @@ namespace Commerce.Models
     {
         public Product[] NewestProducts { get; set; }
 
-        public Order[] RecentOrder { get; set; }
+        public Order[] RecentOrders { get; set; }
 
         public User[] NewestUsers { get; set; }
     }
