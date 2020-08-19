@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -34,6 +35,10 @@ namespace Commerce.Models
         [DataType(DataType.Password)]
         [Display(Name="Confirm Password")]
         public string Confirm { get ; set; }
+
+        public List<Order> Orders { get; set; }
+
+        public List<Product> CreatedProducts { get; set; }
 
         public DateTime CreatedAt { get ; set; } = DateTime.Now;
         public DateTime UpdatedAt { get ; set; } = DateTime.Now;
