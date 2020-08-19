@@ -1,0 +1,10 @@
+[program:Commerce]
+command=/usr/bin/dotnet  /var/www/Commerce/bin/Debug/netcoreapp3.1/publish/Commerce.dll
+directory=/var/www/Commerce/bin/Debug/netcoreapp3.1/publish
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/Commerce.err.log
+stdout_logfile=/var/log/Commerce.out.log
+environment=ASPNETCORE_ENVIRONMENT=Production
+user=www-data
+stopsignal=INT
